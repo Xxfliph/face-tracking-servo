@@ -23,6 +23,10 @@ void loop() {
 
     float angle_change = distance * 0.025;
 
+    if (distance < 25 && distance > -25) {
+    angle_change = 0;
+    }
+
     pos += angle_change;
     pos = constrain(pos, 0, 180);
     myservo.write(pos);
