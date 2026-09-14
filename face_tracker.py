@@ -3,6 +3,8 @@ import serial
 import time
 import math
 
+
+
 lockedFace = None
 lockedFaceFound = False
 
@@ -115,13 +117,16 @@ def detect_bounding_box(vid):
 def move_camera(face, vid):
     global last_sent
 
-    x_difference = 0
     x_difference = (face[0] + face[2] / 2) - (vid.shape[1] / 2)
+    y_difference = (face[1] + face[3] / 2) - (vid.shape[0] / 2)
 
     if time.time() - last_sent >= 0.05:
         print(x_difference)
+        print(y_difference)
+        print()
 
-        data = (str(x_difference) + "\n").encode()
+        data = f"{x_difference} {y_difference}\n".encode()
+
         ser.write(data)
 
         last_sent = time.time()
