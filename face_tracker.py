@@ -134,26 +134,18 @@ def move_camera(face, vid):
         # response = ser.readline()
         # print(response)
 
+cv2.namedWindow("Video", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("Video", 1280, 960)  # or whatever size you want
 
 while True:
-
     result, video_frame = video_capture.read()
-
-    # print(video_frame.shape)
-    # (480, 640, 3) (y, x, channels)
-
-    video_frame = cv2.flip(video_frame, 1)
-
     if result is False:
         break
+    video_frame = cv2.flip(video_frame, 1)
 
-    faces = detect_bounding_box(video_frame)
-
-    if len(faces) == 0:
-        continue
+    detect_bounding_box(video_frame)  # draws rect + sends serial internally, ignore return use
 
     cv2.imshow("Video", video_frame)
-
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 

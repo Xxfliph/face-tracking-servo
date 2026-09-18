@@ -1,3 +1,4 @@
+
 #include <ESP32Servo.h>
 
 Servo xmyservo;
@@ -31,9 +32,9 @@ void loop() {
     float xdistance = distance_string.substring(0, seperator).toFloat();
     float ydistance = distance_string.substring(seperator+1).toFloat();
 
-
+    
     float xangle_change = xdistance * 0.025;
-    float yangle_change = ydistance * -0.025;
+    float yangle_change = ydistance * 0.025;
 
     if (xdistance < 25 && xdistance > -25) {
         xangle_change = 0;
@@ -50,3 +51,6 @@ void loop() {
     ymyservo.write(ypos);
   }
 }
+
+
+
