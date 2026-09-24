@@ -2,6 +2,12 @@
 
 A 2D face tracking system using OpenCV, Python, an ESP32, and two servo motors.
 
+## Demo
+
+[![2-Axis Face-Tracking Gimbal Demo](https://img.youtube.com/vi/D_INcjYE7Wk/hqdefault.jpg)](https://youtube.com/shorts/D_INcjYE7Wk)
+
+*Click the thumbnail above to watch the 15-second hardware demonstration on YouTube.*
+
 ## How It Works
 
 The Python program uses OpenCV to detect faces through a webcam. It selects and tracks a face, calculates its horizontal and vertical distance from the center of the camera frame, and sends this information to an ESP32 over serial communication.
